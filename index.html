@@ -323,6 +323,34 @@
             max-width: 800px;
         }
 
+        /* Demo Section */
+        .demo-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .demo-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .demo-item h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .demo-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
         /* Future Section */
         .future-grid {
             display: grid;
@@ -487,7 +515,7 @@
         <div class="container header-content">
             <h1 class="title">视觉与语言的融合：多模态大语言模型赋能自动驾驶的现状与前景</h1>
             <div class="author-info">
-                <p>学号：22072125 &nbsp;|&nbsp; 姓名：张禹喆 &nbsp;|&nbsp; 专业：信息安全</p>
+                <p>学号：22072125  |  姓名：张禹喆  |  专业：信息安全</p>
             </div>
             <div class="abstract">
                 <h2>摘要</h2>
@@ -509,6 +537,7 @@
                 <li><a href="#framework">OmniDrive框架</a></li>
                 <li><a href="#nuscenes">OmniDrive-nuScenes</a></li>
                 <li><a href="#performance">技术评估</a></li>
+                <li><a href="#demo">结果演示</a></li>
                 <li><a href="#future">未来发展</a></li>
                 <li><a href="#conclusion">结论</a></li>
                 <li><a href="#references">参考文献</a></li>
@@ -574,7 +603,7 @@
             <p>OmniDrive框架提出了一种创新的3D视觉语言模型架构，旨在融合语言推理与空间感知能力，实现更高效的自动驾驶规划决策。该框架解决了当前自动驾驶与大语言模型结合面临的两大关键挑战：三维空间理解能力和高分辨率多视图输入处理。</p>
             
             <div class="framework-diagram">
-                <img src="assets/images/2.jpg" alt="OmniDrive的基本框架" />
+                <img src="assets/images/3.png" alt="OmniDrive的基本框架" />
                 <p><em>图2：OmniDrive的基本框架，包括OmniDrive-Agent和OmniDrive-nuScenes两部分</em></p>
             </div>
             
@@ -584,7 +613,7 @@
                 <p>OmniDrive的核心创新在于发现Q-Former架构与DETR3D、PETR(v2)等基于查询的3D感知模型家族具有显著相似性。这些模型使用稀疏3D查询，相比密集的鸟瞰图(BEV)和复杂的注意力查询，表示展现出显著优势，包括领先的性能、长距离感知能力以及联合建模地图元素的能力。</p>
                 
                 <div class="framework-diagram">
-                    <img src="assets/images/3.png" alt="OmniDrive-Agent的整体架构" />
+                    <img src="assets/images/4.jpg" alt="OmniDrive-Agent的整体架构" />
                     <p><em>图3: OmniDrive-Agent的整体架构。左图展示了模型的整体框架，右图展示了Q-Former3D的具体结构</em></p>
                 </div>
                 
@@ -647,7 +676,7 @@
             <p>为了评估驾驶LLM代理的性能，OmniDrive提出了OmniDrive-nuScenes，这是一个建立在nuScenes数据集上的新型判断基准，包含高质量的视觉问答对，涵盖3D领域的感知、推理和规划。</p>
             
             <div class="framework-diagram">
-                <img src="assets/images/4.jpg" alt="OmniDrive-nuScenes的QA生成示例" />
+                <img src="assets/images/6.jpg" alt="OmniDrive-nuScenes的QA生成示例" />
                 <p><em>图4: OmniDrive-nuScenes的在线QA生成示例，展示了2D定位、3D距离和车道-物体关联等任务</em></p>
             </div>
             
@@ -704,7 +733,7 @@
                 <p>具有中心线构建任务的模型（即完整模型）在可行驶区域任务中的表现优于没有车道监督的模型。在反事实推理任务上，完整模型取得了最佳性能，反事实推理的平均精度为52.3%，平均召回率为59.6%。</p>
                 
                 <div class="chart-container">
-                    <img src="assets/images/5.png" alt="规划与反事实推理性能对比" />
+                    <img src="assets/images/9.png" alt="规划与反事实推理性能对比" />
                     <p><em>图5: 不同模型配置在规划与反事实推理任务上的性能对比</em></p>
                 </div>
             </div>
@@ -715,7 +744,7 @@
                 <p>在NuScenes-QA基准测试中，在相同的相机模态下，OmniDrive模型的准确率比BEVDet+MCAN高1.3%，证明了预训练的重要性。OmniDrive模型的性能与激光雷达模态的模型相当。</p>
                 
                 <div class="chart-container">
-                    <img src="assets/images/6.jpg" alt="场景描述能力评估" />
+                    <img src="assets/images/10.png" alt="场景描述能力评估" />
                     <p><em>图6: 不同模型在场景描述任务上的性能评估</em></p>
                 </div>
             </div>
@@ -728,6 +757,32 @@
                 <div class="chart-container">
                     <img src="assets/images/7.png" alt="开环规划能力分析" />
                     <p><em>图7: 不同方法在开环规划任务上的性能对比</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">结果演示</h2>
+            <div class="demo-container">
+                <div class="demo-item">
+                    <h3>生成驾驶指令&场景描述</h3>
+                    <img src="assets/images/demo1.gif" alt="生成驾驶指令&场景描述" />
+                </div>
+                <div class="demo-item">
+                    <h3>生成驾驶指令&可解释性</h3>
+                    <img src="assets/images/demo2.gif" alt="生成驾驶指令&可解释性" />
+                </div>
+                <div class="demo-item">
+                    <h3>交互式对话</h3>
+                    <img src="assets/images/demo3.gif" alt="交互式对话" />
+                </div>
+                <div class="demo-item">
+                    <h3>反事实预测和推理</h3>
+                    <img src="assets/images/demo4.png" alt="反事实预测和推理1" />
+                    <img src="assets/images/demo5.png" alt="反事实预测和推理2" />
                 </div>
             </div>
         </div>
@@ -846,7 +901,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 张禹喆 - 信息安全</p>
+                <p>© 2025 张禹喆 - 信息安全</p>
                 <p>视觉与语言的融合：多模态大语言模型赋能自动驾驶的现状与前景</p>
                 <div class="footer-links">
                     <a href="#intro">研究背景</a>
